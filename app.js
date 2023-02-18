@@ -5,6 +5,7 @@ const app = express();
 
 const contactsRouter = require("./app/routes/contact.route");
 const ApiError = require("./app/api-error");
+const userRouter = require("./app/routes/user.route");
 
 app.use(cors());
 app.use(express.json());
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.use("/api/contacts", contactsRouter);
+app.use("/api/user", userRouter);
 
 app.use((req, res, next) => {
   return next(new ApiError(404, 'Resource not found'));
