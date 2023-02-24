@@ -5,7 +5,7 @@ class ContactService {
         this.Contact = client.db().collection("contact");
     }
 
-    extractConactData(payload) {
+    extractUserData(payload) {
         const contact ={
             name: payload.name,
             email: payload.email,
@@ -20,7 +20,7 @@ class ContactService {
     }
 
     async create(payload){
-        const contact = this.extractConactData(payload);
+        const contact = this.extractUserData(payload);
         const result = await this.Contact.findOneAndUpdate(
             contact,
             {$set: {favorite: contact.favorite === true}},

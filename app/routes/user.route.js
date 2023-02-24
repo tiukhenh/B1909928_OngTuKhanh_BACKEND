@@ -9,7 +9,7 @@ router.route("/")
 
 router.route("/login")
     .post(user.login);
-
+    
 router.route("/logout")
     .post(user.logout);
     
